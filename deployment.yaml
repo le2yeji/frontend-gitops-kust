@@ -2,10 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
-  labels:
-    app: frontend
 spec:
   replicas: 1
+  revisionHistoryLimit: 3
   selector:
     matchLabels:
       app: frontend
@@ -15,12 +14,12 @@ spec:
         app: frontend
     spec:
       containers:
-      - name: frontend
-        image: ghcr.io/shclub/edu12-frontend
+      - name: frontend-springboot
+        #image: yyazi/vue_crud
+        image: ghcr.io/shclub/vue3
         imagePullPolicy: Always
-        #image: shclub/edu12-3:v11
         env:
           - name: BACKEND_API_URL
-            value: "http://backend" 
+            value: "backend"
         ports:
-        - containerPort: 80
+        - containerPort: 8080
