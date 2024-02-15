@@ -4,5 +4,7 @@ resources:
 - deployment.yaml
 - service.yaml
 images:
+- name: ghcr.io/le2yeji/vue_crud_security
+  newTag: "20240215092433"
 - name: ghcr.io/shclub/vue3
-  newTag: "v3"
+  newTag: v3
